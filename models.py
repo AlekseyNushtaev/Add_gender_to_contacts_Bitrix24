@@ -1,14 +1,8 @@
 import atexit
-import os
 from sqlalchemy import create_engine, String
 from sqlalchemy.orm import DeclarativeBase, mapped_column, Mapped, sessionmaker
 
-
-POSTGRES_USER = os.getenv('POSTGRES_USER')
-POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-POSTGRES_DB = os.getenv('POSTGRES_DB')
-POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+from config import POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB
 
 PG_DSN = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
 
@@ -34,4 +28,5 @@ class NamesWoman(Base):
     title: Mapped[str] = mapped_column(String(20), unique=True, index=True, nullable=False)
 
 
+Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)

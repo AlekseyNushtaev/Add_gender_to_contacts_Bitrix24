@@ -4,6 +4,7 @@ import requests
 
 
 class Parser:
+    """Класс для парсинга имен со специализированного сайта"""
     @staticmethod
     def get_names(gender: str) -> list:
         url = f"https://kakzovut.ru/{gender}.html"
