@@ -1,7 +1,7 @@
-from bitrix import BitrixWorker
+from bitrix.bitrix import BitrixWorker
 from config import WEBHOOK
-from database import DbWorker
-from models import Session, NamesMan, NamesWoman
+from database.database import DbWorker
+from database.models import Session, NamesMan, NamesWoman
 
 
 def main():

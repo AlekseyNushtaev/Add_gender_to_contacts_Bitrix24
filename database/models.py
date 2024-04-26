@@ -28,5 +28,5 @@ class NamesWoman(Base):
     title: Mapped[str] = mapped_column(String(20), unique=True, index=True, nullable=False)
 
 
-Base.metadata.drop_all(bind=engine)
+#Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)

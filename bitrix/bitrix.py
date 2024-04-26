@@ -7,7 +7,7 @@ class BitrixWorker:
     def __init__(self, webhook):
         self.bitrix = Bitrix(webhook)
 
-    def get_contacts(self):
+    def get_contacts(self) -> list:
         """Функция для получения контактов из Bitrix24"""
         try:
             params = {"SELECT": ["ID", "NAME"]}
@@ -16,7 +16,7 @@ class BitrixWorker:
         except ErrorInServerResponseException:
             pass
 
-    def add_sex_field(self):
+    def add_sex_field(self) -> None:
         """Функция для добавления поля SEX в контакты"""
         try:
             items = {
@@ -31,7 +31,7 @@ class BitrixWorker:
         except ErrorInServerResponseException:
             pass
 
-    def update_sex_field(self, id, sex: str):
+    def update_sex_field(self, id: int, sex: str) -> None:
         """Функция для записи значения в поле SEX контактов"""
         try:
             items = {

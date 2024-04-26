@@ -2,8 +2,8 @@ from sqlalchemy import select
 from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 
-from models import NamesMan, NamesWoman
-from parser import Parser
+from database.models import NamesMan, NamesWoman
+from database.parser import Parser
 
 
 class DbWorker:

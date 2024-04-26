@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+#load_dotenv()
 
 WEBHOOK = os.environ.get("WEBHOOK")
 POSTGRES_USER = os.environ.get("POSTGRES_USER")
